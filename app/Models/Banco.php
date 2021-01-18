@@ -11,7 +11,7 @@ class Banco extends Model
 
     protected $table = 'banco';
 
-    public function fonecedores()
+    public function fornecedor()
     {
         return $this->belongsToMany(Fornecedor::class)->using(BancoFornecedor::class);
     }

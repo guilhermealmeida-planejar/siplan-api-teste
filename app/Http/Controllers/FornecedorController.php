@@ -14,7 +14,7 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        //
+        return Fornecedor::with('bancos')->get();
     }
 
     /**
@@ -36,7 +36,7 @@ class FornecedorController extends Controller
      */
     public function show(Fornecedor $fornecedor)
     {
-        //
+        return $fornecedor->load('bancos');
     }
 
     /**

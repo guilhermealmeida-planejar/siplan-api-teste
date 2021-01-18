@@ -14,7 +14,7 @@ class BancoController extends Controller
      */
     public function index()
     {
-        return Banco::all();
+        return Banco::with('fornecedor')->get();
     }
 
     /**
@@ -36,7 +36,7 @@ class BancoController extends Controller
      */
     public function show(Banco $banco)
     {
-        //
+        return $banco->load('fornecedor');
     }
 
     /**
