@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('banco', \App\Http\Controllers\BancoController::class);
+Route::apiResource('fornecedor', \App\Http\Controllers\FornecedorController::class);

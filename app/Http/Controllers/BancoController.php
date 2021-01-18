@@ -14,7 +14,7 @@ class BancoController extends Controller
      */
     public function index()
     {
-        //
+        return Banco::all();
     }
 
     /**

@@ -10,4 +10,9 @@ class Banco extends Model
     use HasFactory;
 
     protected $table = 'banco';
+
+    public function fonecedores()
+    {
+        return $this->belongsToMany(Fornecedor::class)->using(BancoFornecedor::class);
+    }
 }

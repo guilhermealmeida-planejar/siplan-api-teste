@@ -22,7 +22,11 @@ class FornecedorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome' => $this->faker->name,
+            'pis' => $this->faker->text('5'),
+            'objetoSocial' => $this->faker->numberBetween(0, 20),
+            'dataRegistro' => $this->faker->date(),
+            'numeroRegistro' => $this->faker->numberBetween(0, 20),
         ];
     }
 }

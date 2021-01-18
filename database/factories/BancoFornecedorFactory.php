@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Banco;
+use App\Models\BancoFornecedor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BancoFactory extends Factory
+class BancoFornecedorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Banco::class;
+    protected $model = BancoFornecedor::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +22,7 @@ class BancoFactory extends Factory
     public function definition()
     {
         return [
-            'nome' => $this->faker->company,
-            'agencia' => $this->faker->bankAccountNumber,
+
         ];
     }
 }

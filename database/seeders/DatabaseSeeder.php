@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BancoFornecedor;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+//        BancoFornecedor::factory(1)->create();
+
+        \App\Models\Fornecedor::factory()
+            ->has(\App\Models\Banco::factory()->count(3))
+            ->create();
+
+//        \App\Models\Fornecedor::factory(1)->create();
+//
+//        \App\Models\Banco::factory(1)->create();
     }
 }
