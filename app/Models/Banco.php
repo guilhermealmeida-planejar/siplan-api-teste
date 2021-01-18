@@ -13,6 +13,6 @@ class Banco extends Model
 
     public function fornecedor()
     {
-        return $this->belongsToMany(Fornecedor::class)->using(BancoFornecedor::class);
+        return $this->belongsTo(Fornecedor::class);
     }
 }

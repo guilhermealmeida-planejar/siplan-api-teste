@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Banco::factory(60)
-            ->has(\App\Models\Fornecedor::factory()->count(10))
+        \App\Models\Banco::factory()
+            ->has(\App\Models\Fornecedor::factory()->count(3))
             ->create();
     }
 }
