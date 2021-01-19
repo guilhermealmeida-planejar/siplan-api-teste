@@ -12,6 +12,6 @@ class Fornecedor extends Model
 
     public function banco()
     {
-        return $this->hasMany(Banco::class);
+        return $this->belongsTo(Banco::class);
     }
 }

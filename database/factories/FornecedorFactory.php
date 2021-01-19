@@ -24,9 +24,11 @@ class FornecedorFactory extends Factory
         return [
             'nome' => $this->faker->name,
             'pis' => $this->faker->text('5'),
-            'objetoSocial' => $this->faker->numberBetween(0, 20),
+            'objetoSocial' => $this->faker->numberBetween(1000, 9999),
             'dataRegistro' => $this->faker->date(),
-            'numeroRegistro' => $this->faker->numberBetween(0, 20),
+            'numeroRegistro' => $this->faker->numberBetween(1000, 9999),
+            'banco_id' => \App\Models\Banco::factory(),
+            'pessoa_id' => \App\Models\Pessoa::factory(),
         ];
     }
 }

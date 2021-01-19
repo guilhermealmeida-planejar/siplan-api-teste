@@ -14,7 +14,7 @@ class PessoaController extends Controller
      */
     public function index()
     {
-        //
+        return Pessoa::with('fornecedor')->get();
     }
 
     /**
@@ -36,7 +36,7 @@ class PessoaController extends Controller
      */
     public function show(Pessoa $pessoa)
     {
-        //
+        return $pessoa->load('fornecedor');
     }
 
     /**

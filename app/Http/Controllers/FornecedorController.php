@@ -14,7 +14,7 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        return Fornecedor::with('bancos')->get();
+        return Fornecedor::with('banco')->get();
     }
 
     /**

@@ -22,7 +22,10 @@ class PessoaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nome' => $this->faker->name,
+            'documento' => $this->faker->randomNumber(3),
+            'tipo_pessoa' => $this->faker->randomElement(['Fisice', 'Juridica']),
+            'inscricao_estadual' => $this->faker->randomNumber(3),
         ];
     }
 }

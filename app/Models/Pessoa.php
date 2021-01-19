@@ -10,4 +10,9 @@ class Pessoa extends Model
     use HasFactory;
 
     protected $table = 'pessoa';
+
+    public function fornecedor()
+    {
+        return $this->hasMany(Fornecedor::class);
+    }
 }
