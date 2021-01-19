@@ -14,7 +14,7 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        return Fornecedor::with('banco')->get();
+        return Fornecedor::with(['banco', 'pessoa'])->get();
     }
 
     /**
@@ -36,7 +36,7 @@ class FornecedorController extends Controller
      */
     public function show(Fornecedor $fornecedor)
     {
-        return $fornecedor->load('bancos');
+        return $fornecedor->load(['banco', 'pessoa']);
     }
 
     /**
@@ -59,6 +59,6 @@ class FornecedorController extends Controller
      */
     public function destroy(Fornecedor $fornecedor)
     {
-        //
+        return $fornecedor->delete();
     }
 }

@@ -59,6 +59,6 @@ class BancoController extends Controller
      */
     public function destroy(Banco $banco)
     {
-        //
+        return $banco->delete();
     }
 }

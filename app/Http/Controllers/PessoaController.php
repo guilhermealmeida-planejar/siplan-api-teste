@@ -59,6 +59,6 @@ class PessoaController extends Controller
      */
     public function destroy(Pessoa $pessoa)
     {
-        //
+        return $pessoa->delete();
     }
 }
