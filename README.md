@@ -8,6 +8,33 @@
 
 - `php artisan route:list`
 
+## Campos para Cadastro/Edicao
+### Banco
+
+    {
+	    "nome": "",
+	    "agencia": ""
+    }
+
+### Fornecedor
+
+    {
+        "nome": "",
+        "pis": "",
+        "objetoSocial": "",
+        "dataRegistro": "",
+        "numeroRegistro": ""
+    }
+
+### Pessoa
+
+    {
+        'nome' => '',
+        'documento' => '',
+        'tipo_pessoa' => '',
+        'inscricao_estadual' => '',
+    }
+
 ## breadcrumb
 
 - **Fornecedor**
