@@ -48,5 +48,9 @@ class Handler extends ExceptionHandler
                 ], 404);
             }
         }
+
+        return response()->json([
+            'msg' => $e->getMessage(),
+        ], 404);
     }
 }

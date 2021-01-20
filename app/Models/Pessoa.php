@@ -11,6 +11,8 @@ class Pessoa extends Model
 
     protected $table = 'pessoa';
 
+    protected $guarded = [];
+
     public function fornecedor()
     {
         return $this->hasMany(Fornecedor::class);
