@@ -32,6 +32,8 @@ class FornecedorController extends Controller
             'objetoSocial' => 'required',
             'dataRegistro' => 'required|date',
             'numeroRegistro' => 'required|integer',
+            'pessoa_id' => 'required',
+            'banco_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -47,6 +49,8 @@ class FornecedorController extends Controller
             'objetoSocial' => $request->get('objetoSocial'),
             'dataRegistro' => $request->get('dataRegistro'),
             'numeroRegistro' => $request->get('numeroRegistro'),
+            'pessoa_id' => $request->get('pessoa_id'),
+            'banco_id' => $request->get('banco_id'),
         ]);
 
         return response()->json([
@@ -81,6 +85,8 @@ class FornecedorController extends Controller
             'objetoSocial' => 'required',
             'dataRegistro' => 'required|date',
             'numeroRegistro' => 'required|integer',
+            'pessoa_id' => 'required',
+            'banco_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -96,6 +102,8 @@ class FornecedorController extends Controller
             'objetoSocial' => $request->get('objetoSocial'),
             'dataRegistro' => $request->get('dataRegistro'),
             'numeroRegistro' => $request->get('numeroRegistro'),
+            'pessoa_id' => $request->get('pessoa_id'),
+            'banco_id' => $request->get('banco_id'),
         ]);
 
         return response()->json([
