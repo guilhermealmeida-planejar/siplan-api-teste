@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fornecedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FornecedorController extends Controller
 {
@@ -21,16 +22,36 @@ class FornecedorController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nome' => 'required',
             'pis' => 'required',
             'objetoSocial' => 'required',
             'dataRegistro' => 'required|date',
-            'numeroRegistro' => 'required',
+            'numeroRegistro' => 'required|integer',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'erro',
+                'data' => $validator->errors(),
+            ]);
+        }
+
+        $banco = Fornecedor::create([
+            'nome' => $request->get('nome'),
+            'pis' => $request->get('pis'),
+            'objetoSocial' => $request->get('objetoSocial'),
+            'dataRegistro' => $request->get('dataRegistro'),
+            'numeroRegistro' => $request->get('numeroRegistro'),
+        ]);
+
+        return response()->json([
+            'status' => 'OK',
+            'data' => $banco,
         ]);
     }
 
@@ -50,16 +71,35 @@ class FornecedorController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Fornecedor  $fornecedor
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Fornecedor $fornecedor)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nome' => 'required',
             'pis' => 'required',
             'objetoSocial' => 'required',
             'dataRegistro' => 'required|date',
-            'numeroRegistro' => 'required',
+            'numeroRegistro' => 'required|integer',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'erro',
+                'data' => $validator->errors(),
+            ]);
+        }
+
+        $fornecedor->update([
+            'nome' => $request->get('nome'),
+            'pis' => $request->get('pis'),
+            'objetoSocial' => $request->get('objetoSocial'),
+            'dataRegistro' => $request->get('dataRegistro'),
+            'numeroRegistro' => $request->get('numeroRegistro'),
+        ]);
+
+        return response()->json([
+            'status' => 'OK'
         ]);
     }
 
@@ -67,10 +107,14 @@ class FornecedorController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Fornecedor  $fornecedor
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Fornecedor $fornecedor)
     {
-        return $fornecedor->delete();
+        $fornecedor->delete();
+
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 }

@@ -9,6 +9,7 @@ class Fornecedor extends Model
 {
     use HasFactory;
     protected $table = 'fornecedor';
+    protected $guarded = [];
 
     public function banco()
     {
