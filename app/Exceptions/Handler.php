@@ -37,4 +37,16 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $e)
+    {
+        if ($request->wantsJson()) {
+            if ($e instanceof \Exception) {
+                return response()->json([
+                    'data' => 'Resource not found',
+                    'msg' => $e->getMessage(),
+                ], 404);
+            }
+        }
+    }
 }

@@ -25,7 +25,12 @@ class PessoaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'documento' => 'required',
+            'tipo_pessoa' => 'required',
+            'inscricao_estadual' => 'required',
+        ]);
     }
 
     /**
@@ -48,7 +53,12 @@ class PessoaController extends Controller
      */
     public function update(Request $request, Pessoa $pessoa)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'documento' => 'required',
+            'tipo_pessoa' => 'required',
+            'inscricao_estadual' => 'required',
+        ]);
     }
 
     /**

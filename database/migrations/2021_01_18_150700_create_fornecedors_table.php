@@ -21,11 +21,20 @@ class CreateFornecedorsTable extends Migration
             $table->date('dataRegistro');
             $table->integer('numeroRegistro');
 
-            $table->integer('banco_id');
-            $table->foreign('banco_id')->on('banco')->references('id');
+            $table->integer('banco_id')->nullable();
+            $table->foreign('banco_id')
+                ->on('banco')
+                ->references('id')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
 
-            $table->integer('pessoa_id');
-            $table->foreign('pessoa_id')->on('pessoa')->references('id');
+            $table->integer('pessoa_id')->nullable();
+            $table->foreign('pessoa_id')
+                ->on('pessoa')
+                ->references('id')
+                ->onUpdate('cascade')
+                ->onDelete('set null');
+
             $table->timestamps();
         });
     }

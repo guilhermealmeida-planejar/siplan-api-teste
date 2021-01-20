@@ -10,6 +10,7 @@ class Banco extends Model
     use HasFactory;
 
     protected $table = 'banco';
+    protected $guarded = [];
 
     public function fornecedor()
     {

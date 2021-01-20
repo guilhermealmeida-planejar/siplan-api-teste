@@ -25,7 +25,13 @@ class FornecedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'pis' => 'required',
+            'objetoSocial' => 'required',
+            'dataRegistro' => 'required|date',
+            'numeroRegistro' => 'required',
+        ]);
     }
 
     /**
@@ -48,7 +54,13 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, Fornecedor $fornecedor)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'pis' => 'required',
+            'objetoSocial' => 'required',
+            'dataRegistro' => 'required|date',
+            'numeroRegistro' => 'required',
+        ]);
     }
 
     /**
