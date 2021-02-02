@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Data\PessoaData;
 use App\Models\Pessoa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -26,25 +27,14 @@ class PessoaController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nome' => 'required',
-            'documento' => 'required',
-            'tipo_pessoa' => 'required',
-            'inscricao_estadual' => 'required',
-        ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'erro',
-                'data' => $validator->errors(),
-            ]);
-        }
+        $teste = PessoaData::fromRequest($request);
 
         $pesssoa = Pessoa::create([
-            'nome' => $request->get('nome'),
-            'documento' => $request->get('documento'),
-            'tipo_pessoa' => $request->get('tipo_pessoa'),
-            'inscricao_estadual' => $request->get('inscricao_estadual'),
+            'nome' => $teste->nome,
+            'documento' => $teste->documento,
+            'tipo_pessoa' => $teste->tipo_pessoa,
+            'inscricao_estadual' => $teste->inscricao_estadual,
         ]);
 
         return response()->json([
